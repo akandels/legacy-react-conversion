@@ -1,0 +1,237 @@
+{
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "legacyDecorators": true
+        }
+    },
+    "extends": [
+        "airbnb",
+        "plugin:lodash/recommended"
+    ],
+    "plugins": [
+        "import",
+        "react",
+        "lodash"
+    ],
+    "settings": {
+        "import/resolver": {
+            "webpack": {
+                "config": "./webpack.config.js"
+            }
+        },
+        "import/extensions": [
+            ".js",
+            ".jsx"
+        ]
+    },
+    "rules": {
+        "semi": 2,
+        "default-case": 0, // Required default case is nonsense.
+        "global-require": 0, // Used by webpack-isomorphic-tools and React Native.
+        "new-cap": [2, {"capIsNew": false, "newIsCap": true}], // For Record() etc.
+        "no-class-assign": 0, // Class assign is used for higher order components.
+        "no-confusing-arrow": 0, // No, this is not confusing.
+        "no-floating-decimal": 0, // .5 is just fine.
+        "no-nested-ternary": 0, // It's nice for JSX.s
+        "no-param-reassign": 0, // We love param reassignment. Naming is hard.
+        "no-shadow": 0, // Shadowing is a nice language feature. Naming is hard.
+        "no-underscore-dangle": 0, // It's classic pattern to denote private props.
+        "react/prefer-stateless-function": 0, // We are not there yet.
+        "import/imports-first": 0, // Este sorts by the natural order.
+        "react/jsx-filename-extension": 0, // No, JSX belongs to .js files
+        "jsx-a11y/html-has-lang": 0, // Can't recognize the Helmet.
+        "jsx-quotes": ["error", "prefer-double"],
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": ["*.config.js", "**/*.spec.js"]}],
+        "new-parens": 2, // new Foo is just fine.
+        "no-invalid-regexp": 2,
+        "no-irregular-whitespace": 2,
+        "no-unreachable": 2,
+        "indent": "off",
+        "indent-legacy": ["error", 4, {
+            "SwitchCase": 1,
+            "VariableDeclarator": 1,
+            "outerIIFEBody": 1,
+            "FunctionDeclaration": {
+                "parameters": 1,
+                "body": 1
+            },
+            "FunctionExpression": {
+                "parameters": 1,
+                "body": 1
+            }
+        }],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "react/jsx-closing-bracket-location": ["error", "after-props"],
+        "react/jsx-curly-brace-presence": ["error", { "props": "never", "children": "never" }],
+        "keyword-spacing": ["error", {"before": true, "after": true}],
+        "object-curly-spacing": ["error", "always"],
+        "object-shorthand": ["error", "always", {
+            "ignoreConstructors": false,
+            "avoidQuotes": true
+        }],
+        "object-property-newline": ["error", {
+            "allowMultiplePropertiesPerLine": true
+        }],
+        "one-var-declaration-per-line": ["error", "always"],
+        "operator-assignment": ["error", "always"],
+        "padded-blocks": ["error", { "blocks": "never", "classes": "never", "switches": "never" }],
+        "prefer-arrow-callback": ["error", {
+            "allowNamedFunctions": false,
+            "allowUnboundThis": true
+        }],
+        "prefer-template": "error",
+        "quote-props": ["error", "as-needed", { "keywords": false, "unnecessary": true, "numbers": false }],
+        "react/jsx-boolean-value": ["error", "never"],
+        "react/jsx-curly-spacing": ["error", "never", { "allowMultiline": true }],
+        "react/jsx-equals-spacing": ["error", "never"],
+        "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
+        "react/jsx-max-props-per-line": ["error", { "maximum": 1, "when": "multiline" }],
+        "react/jsx-tag-spacing": ["error", {
+            "closingSlash": "never",
+            "beforeSelfClosing": "always",
+            "afterOpening": "never"
+        }],
+        "react/jsx-wrap-multilines": ["error", {
+            "declaration": true,
+            "assignment": true,
+            "return": true,
+            "arrow": true
+        }],
+        "react/self-closing-comp": "error",
+        "rest-spread-spacing": ["error", "never"],
+        "semi-spacing": ["error", { "before": false, "after": true }],
+        "space-before-blocks": "error",
+        "space-before-function-paren": ["error", {
+            "anonymous": "always",
+            "named": "never",
+            "asyncArrow": "always"
+        }],
+        "space-in-parens": ["error", "never"],
+        "space-infix-ops": "error",
+        "space-unary-ops": ["error", {
+            "words": true,
+            "nonwords": false,
+            "overrides": {}
+        }],
+        "spaced-comment": ["error", "always", {
+            "line": {
+                "exceptions": ["-", "+"],
+                "markers": [
+                    "=",
+                    "!"
+                ]
+                // space here to support sprockets directives
+            },
+            "block": {
+                "exceptions": ["-", "+"],
+                "markers": ["=", "!"], // space here to support sprockets directives
+                "balanced": true
+            }
+        }],
+        "template-curly-spacing": "error",
+        "yoda": "error",
+
+        // Import Rules
+        "import/named": 2,
+        "import/no-unresolved": 2,
+        "import/namespace": 2,
+        "import/default": 0, // not everything needs a default export
+        "import/export": 2,
+        "import/no-mutable-exports": 2,
+        "import/no-duplicates": 2,
+        "import/no-cycle": 0,
+
+        "quotes": [2, "single"],
+        "no-multiple-empty-lines": [2, {"max": 1}],
+        "no-trailing-spaces": ["error"],
+        "strict": ["error", "never"],
+        "eol-last": ["error", "always"],
+        "no-var": [2],
+        "no-use-before-define": [2, "nofunc"],
+        "no-constant-condition": ["error", { "checkLoops": false } ],
+        "no-bitwise": [2],
+        "comma-dangle": [2, "always-multiline"],
+        "no-duplicate-case": ["error"],
+        "no-implicit-coercion": ["error"],
+
+        // disabled AirBnb rules
+        "array-callback-return": 0,
+        "camelcase": 0,
+        "class-methods-use-this": 0,
+        "consistent-return": 0,
+        "eqeqeq": 0,
+        "func-names": 0,
+        "guard-for-in": 0,
+        "import/extensions": 0,
+        "import/no-named-as-default": 0,
+        "import/order": 0,
+        "import/prefer-default-export": 0,
+        "jsx-a11y/alt-text": 0,
+        "jsx-a11y/anchor-is-valid": 0,
+        "jsx-a11y/click-events-have-key-events": 0,
+        "jsx-a11y/label-has-associated-control": 0,
+        "jsx-a11y/label-has-for": 0,
+        "jsx-a11y/no-static-element-interactions": 0,
+        "max-len": 0,
+        "no-alert": 0,
+        "no-console": 0,
+        "no-mixed-operators": 0,
+        "no-mixed-spaces-and-tabs": 0,
+        "no-plusplus": 0,
+        "no-restricted-globals": 0,
+        "no-restricted-syntax": 0,
+        "no-return-assign": 0,
+        "no-script-url": 0,
+        "no-tabs": 0,
+        "no-undef": 0,
+        "no-unused-expressions": 0,
+        "no-unused-vars": 0,
+        "no-useless-constructor": 0,
+        "no-useless-escape": 0,
+        "prefer-const": 0,
+        "prefer-destructuring": 0,
+        "radix": 0,
+        "react/button-has-type": 0,
+        "react/default-props-match-prop-types": 0,
+        "react/destructuring-assignment": 0,
+        "react/forbid-foreign-prop-types": 0,
+        "react/forbid-prop-types": 0,
+        "react/jsx-closing-tag-location": 0,
+        "react/jsx-no-bind": 0,
+        "react/jsx-no-target-blank": 0,
+        "react/jsx-no-undef": 0,
+        "react/no-access-state-in-setstate": 0,
+        "react/no-array-index-key": 0,
+        "react/no-danger": 0,
+        "react/no-did-update-set-state": 0,
+        "react/no-find-dom-node": 0,
+        "react/no-multi-comp": 0,
+        "react/no-string-refs": 0,
+        "react/no-unescaped-entities": 0,
+        "react/no-unknown-property": 0,
+        "react/no-unused-prop-types": 0,
+        "react/no-unused-state": 0,
+        "react/prop-types": 0,
+        "react/require-default-props": 0,
+        "react/sort-comp": 0,
+        "react/style-prop-object": 0,
+        "lodash/prefer-lodash-method": 0,
+        "lodash/prefer-constant": 0,
+        "lodash/prefer-noop": 0,
+        "lodash/prefer-lodash-typecheck": 0,
+        "lodash/prefer-includes": 0,
+        "lodash/prefer-startswith": 0,
+        "lodash/prefer-is-nil": 0,
+        "lodash/prefer-get": 0,
+        "lodash/matches-prop-shorthand": 0,
+        "lodash/prefer-compact": 0,
+        "lodash/prop-shorthand": 0,
+        "lodash/prefer-some": 0,
+        "lodash/path-style": 0,
+        "lodash/prefer-matches": 0,
+        "lodash/prefer-immutable-method": 0,
+        "lodash/collection-ordering": 0
+    }
+}
